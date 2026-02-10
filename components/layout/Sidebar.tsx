@@ -13,6 +13,7 @@ import {
   Settings,
   Menu,
   X,
+  Gauge,
 } from "lucide-react";
 import { useState } from "react";
 import SystemStatus from "./SystemStatus";
@@ -23,6 +24,7 @@ const sidebarLinks = [
   { href: "/trips", label: "Active Trips", icon: Route },
   { href: "/dispatch", label: "Dispatch", icon: PlusCircle },
   { href: "/dashboard/vehicles", label: "Fleet / Vehicles", icon: Truck },
+  { href: "/dashboard/efficiency", label: "Efficiency & Risk", icon: Gauge },
   { href: "/drivers", label: "Drivers", icon: Users },
   { href: "/maintenance", label: "Maintenance", icon: Wrench },
   { href: "/settings", label: "Settings", icon: Settings },

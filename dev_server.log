@@ -13,6 +13,37 @@ This information is used to shape Next.js' roadmap and prioritize features.
 You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
 https://nextjs.org/telemetry
 
-✓ Ready in 1093ms
-○ Compiling /dashboard/maintenance ...
- GET /dashboard/maintenance 200 in 6.3s (compile: 5.7s, render: 634ms)
+✓ Ready in 1097ms
+○ Compiling /dashboard/efficiency ...
+⨯ ./app/actions/scoring.ts:3:1
+Export default doesn't exist in target module
+[0m [90m 1 |[39m [32m'use server'[39m[33m;[39m
+ [90m 2 |[39m
+[31m[1m>[22m[39m[90m 3 |[39m [36mimport[39m prisma [36mfrom[39m [32m'@/lib/prisma'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 4 |[39m [36mimport[39m { [33mTripStatus[39m[33m,[39m [33mDriverStatus[39m } [36mfrom[39m [32m'@/types/enums'[39m[33m;[39m
+ [90m 5 |[39m
+ [90m 6 |[39m [90m// Function to simulate sending a push notification[39m[0m
+
+The export default was not found in module [project]/lib/prisma.ts [app-rsc] (ecmascript).
+Did you mean to import prisma?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+
+./app/dashboard/efficiency/page.tsx:1:1
+Export default doesn't exist in target module
+[0m[31m[1m>[22m[39m[90m 1 |[39m [36mimport[39m prisma [36mfrom[39m [32m'@/lib/prisma'[39m[33m;[39m
+ [90m   |[39m [31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m[31m[1m^[22m[39m
+ [90m 2 |[39m [36mimport[39m [33mActiveSuspensions[39m [36mfrom[39m [32m'./_components/ActiveSuspensions'[39m[33m;[39m
+ [90m 3 |[39m [36mimport[39m [33mTrustScoreTable[39m [36mfrom[39m [32m'./_components/TrustScoreTable'[39m[33m;[39m
+ [90m 4 |[39m [36mimport[39m [33mFuelWastedWidget[39m [36mfrom[39m [32m'./_components/FuelWastedWidget'[39m[33m;[39m[0m
+
+The export default was not found in module [project]/lib/prisma.ts [app-rsc] (ecmascript).
+Did you mean to import prisma?
+All exports of the module are statically known (It doesn't have dynamic exports). So it's known statically that the requested export doesn't exist.
+
+
+ GET /dashboard/efficiency 500 in 7.3s (compile: 7.0s, render: 293ms)
+✓ Compiled in 34ms
+ GET /dashboard/efficiency 200 in 650ms (compile: 251ms, render: 399ms)

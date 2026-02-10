@@ -26,6 +26,7 @@ export enum TripStatus {
   EN_ROUTE = 'EN_ROUTE',
   COMPLETED = 'COMPLETED',
   CANCELLED = 'CANCELLED',
+  FAILED_START = 'FAILED_START', // Added for alcohol violation
 }
 
 // Driver Status
@@ -38,10 +39,9 @@ export enum DriverStatus {
 
 // Maintenance Category
 export enum MaintenanceCategory {
-  WEAR_AND_TEAR = 'WEAR_AND_TEAR',
-  NON_WEAR_DAMAGE = 'NON_WEAR_DAMAGE',
+  WEAR = 'WEAR',
   ACCIDENT = 'ACCIDENT',
-  PREVENTATIVE = 'PREVENTATIVE',
+  SERVICE = 'SERVICE',
 }
 
 // KPI Grade
