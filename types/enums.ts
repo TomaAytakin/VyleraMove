@@ -35,3 +35,21 @@ export enum DriverStatus {
   OFF_DUTY = 'OFF_DUTY',
   SUSPENDED = 'SUSPENDED',
 }
+
+// Maintenance Category
+export enum MaintenanceCategory {
+  WEAR_AND_TEAR = 'WEAR_AND_TEAR',
+  NON_WEAR_DAMAGE = 'NON_WEAR_DAMAGE',
+  ACCIDENT = 'ACCIDENT',
+  PREVENTATIVE = 'PREVENTATIVE',
+}
+
+// KPI Grade
+export enum KPIGrade {
+  A_PLUS = 'A_PLUS',
+  A = 'A',
+  B = 'B',
+  C = 'C',
+  D = 'D',
+  F = 'F',
+}
