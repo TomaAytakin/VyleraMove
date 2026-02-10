@@ -30,6 +30,14 @@ model Vehicle {
   vin            String        @unique
   year           Int           @default(2024)
   capacity       Int
+
+  // Hardware / IT Fields
+  imei_tracker       String?
+  serial_dsm_cam     String?
+  serial_road_cam    String?
+  tablet_id          String?
+  ip_address_starlink String?
+
   // Stored as String. Use 'VehicleStatus' enum from types/enums.ts
   status         String        @default("AVAILABLE")
   // Stored as String. Use 'VehicleType' enum from types/enums.ts

@@ -35,6 +35,13 @@ export async function createVehicle(prevState: ActionState, formData: FormData):
     const type = formData.get('type') as string
     const status = (formData.get('status') as string) || VehicleStatus.AVAILABLE
 
+    // Hardware Fields
+    const imei_tracker = (formData.get('imei_tracker') as string) || null
+    const serial_dsm_cam = (formData.get('serial_dsm_cam') as string) || null
+    const serial_road_cam = (formData.get('serial_road_cam') as string) || null
+    const tablet_id = (formData.get('tablet_id') as string) || null
+    const ip_address_starlink = (formData.get('ip_address_starlink') as string) || null
+
     if (!make || !model || !year || !licensePlate || !vin || !capacity || !type) {
       return { success: false, error: 'Missing required fields' }
     }
@@ -49,6 +56,11 @@ export async function createVehicle(prevState: ActionState, formData: FormData):
         capacity,
         type,
         status,
+        imei_tracker,
+        serial_dsm_cam,
+        serial_road_cam,
+        tablet_id,
+        ip_address_starlink,
         currentMileage: 0,
       },
     })
@@ -73,6 +85,13 @@ export async function updateVehicle(id: string, prevState: ActionState, formData
     const status = formData.get('status') as string
     const currentMileage = parseInt(formData.get('currentMileage') as string)
 
+    // Hardware Fields
+    const imei_tracker = (formData.get('imei_tracker') as string) || null
+    const serial_dsm_cam = (formData.get('serial_dsm_cam') as string) || null
+    const serial_road_cam = (formData.get('serial_road_cam') as string) || null
+    const tablet_id = (formData.get('tablet_id') as string) || null
+    const ip_address_starlink = (formData.get('ip_address_starlink') as string) || null
+
     await prisma.vehicle.update({
       where: { id },
       data: {
@@ -85,6 +104,11 @@ export async function updateVehicle(id: string, prevState: ActionState, formData
         type,
         status,
         currentMileage,
+        imei_tracker,
+        serial_dsm_cam,
+        serial_road_cam,
+        tablet_id,
+        ip_address_starlink,
       },
     })
 

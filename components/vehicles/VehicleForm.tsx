@@ -89,6 +89,33 @@ export default function VehicleForm({ vehicle, onClose }: VehicleFormProps) {
         </div>
       )}
 
+      {/* Hardware / IT Section */}
+      <div className="border-t border-zinc-800 pt-4 mt-4">
+        <h3 className="text-md font-semibold text-zinc-300 mb-4">Hardware & IT Setup</h3>
+        <div className="grid grid-cols-2 gap-4">
+           <div>
+              <label className="block text-sm font-medium text-zinc-400">IMEI Tracker (FMC650)</label>
+              <input name="imei_tracker" defaultValue={vehicle?.imei_tracker || ''} className="w-full rounded bg-zinc-900 border border-zinc-700 px-3 py-2 text-zinc-100 focus:border-amber-500 focus:outline-none" placeholder="Tracker IMEI" />
+           </div>
+           <div>
+              <label className="block text-sm font-medium text-zinc-400">Tablet ID (Tab Active5)</label>
+              <input name="tablet_id" defaultValue={vehicle?.tablet_id || ''} className="w-full rounded bg-zinc-900 border border-zinc-700 px-3 py-2 text-zinc-100 focus:border-amber-500 focus:outline-none" placeholder="Samsung Tablet ID" />
+           </div>
+           <div>
+              <label className="block text-sm font-medium text-zinc-400">Driver Cam Serial (DSM)</label>
+              <input name="serial_dsm_cam" defaultValue={vehicle?.serial_dsm_cam || ''} className="w-full rounded bg-zinc-900 border border-zinc-700 px-3 py-2 text-zinc-100 focus:border-amber-500 focus:outline-none" placeholder="DSM Serial" />
+           </div>
+           <div>
+              <label className="block text-sm font-medium text-zinc-400">Road Cam Serial (DualCam)</label>
+              <input name="serial_road_cam" defaultValue={vehicle?.serial_road_cam || ''} className="w-full rounded bg-zinc-900 border border-zinc-700 px-3 py-2 text-zinc-100 focus:border-amber-500 focus:outline-none" placeholder="Road Cam Serial" />
+           </div>
+           <div className="col-span-2">
+              <label className="block text-sm font-medium text-zinc-400">Starlink IP Address</label>
+              <input name="ip_address_starlink" defaultValue={vehicle?.ip_address_starlink || ''} className="w-full rounded bg-zinc-900 border border-zinc-700 px-3 py-2 text-zinc-100 focus:border-amber-500 focus:outline-none" placeholder="192.168.x.x" />
+           </div>
+        </div>
+      </div>
+
       {state.error && <p className="text-red-500 text-sm">{state.error}</p>}
 
       <div className="flex justify-end gap-3 pt-4">
