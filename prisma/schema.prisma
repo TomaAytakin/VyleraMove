@@ -43,9 +43,14 @@ model Vehicle {
   type           String
   currentMileage Int           @default(0)
   trips          Trip[]
+  maintenanceLogs MaintenanceLog[]
 
   // Relation to Driver (One-to-One mostly, but technically One Vehicle can have One Current Driver)
   currentDriver  Driver?
+
+  // Subscriptions & Insurance
+  subscription_starlink_due DateTime?
+  insurance_renewal_due    DateTime?
 
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
@@ -62,14 +67,43 @@ model Driver {
   languages      String   // Comma-separated (e.g., "English, Chinese")
   rating         Float    @default(5.0)
 
+  // Scoring & KPI
+  trust_score    Int      @default(100)
+  // Stored as String. Use 'KPIGrade' enum from types/enums.ts
+  kpi_grade      String   @default("A")
+
   // Current Vehicle Relation
   current_vehicle_id String? @unique
   currentVehicle     Vehicle? @relation(fields: [current_vehicle_id], references: [id])
 
   trips          Trip[]
+  maintenanceLogs MaintenanceLog[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model MaintenanceLog {
+  id             String   @id @default(cuid())
+  date           DateTime
+
+  vehicleId      String
+  vehicle        Vehicle  @relation(fields: [vehicleId], references: [id])
+
+  driverId       String
+  driver         Driver   @relation(fields: [driverId], references: [id])
+
+  cost           Float
+  // Stored as String. Use 'MaintenanceCategory' enum from types/enums.ts
+  category       String
+
+  invoice_url    String
+  ocr_raw_text   String?
+  // Stored as String (JSON) due to SQLite limitations
+  ai_analysis_json String?
+
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
 }
 
 model Trip {
