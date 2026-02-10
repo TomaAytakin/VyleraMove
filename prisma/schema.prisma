@@ -46,8 +46,12 @@ model Vehicle {
   // Fuel Metrics
   avg_fuel_consumption Float @default(0.0)
 
+  // Safety
+  immobilizer_active Boolean   @default(false)
+
   trips          Trip[]
   maintenanceLogs MaintenanceLog[]
+  sobrietyTests  SobrietyTest[]
 
   // Relation to Driver (One-to-One mostly, but technically One Vehicle can have One Current Driver)
   currentDriver  Driver?
@@ -85,6 +89,7 @@ model Driver {
 
   trips          Trip[]
   maintenanceLogs MaintenanceLog[]
+  sobrietyTests  SobrietyTest[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
@@ -149,4 +154,22 @@ model TripTelemetry {
 
   createdAt          DateTime @default(now())
   updatedAt          DateTime @updatedAt
+}
+
+model SobrietyTest {
+  id          String   @id @default(cuid())
+  timestamp   DateTime
+  result      String   // Use 'SobrietyResult' enum from types/enums.ts
+  bac_level   Float
+  photo_url   String?
+  is_override Boolean  @default(false)
+
+  vehicleId   String
+  vehicle     Vehicle  @relation(fields: [vehicleId], references: [id])
+
+  driverId    String
+  driver      Driver   @relation(fields: [driverId], references: [id])
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
 }
