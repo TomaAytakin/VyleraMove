@@ -1,16 +1,10 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import Sidebar from "@/components/layout/Sidebar";
+import Header from "@/components/layout/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "VyleraMove",
@@ -23,11 +17,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 text-slate-900`}
-      >
-        {children}
+    <html lang="en" className="dark">
+      <body className={`${inter.className} bg-zinc-950 text-zinc-100 antialiased`}>
+        <div className="flex h-screen overflow-hidden">
+          {/* Sidebar */}
+          <Sidebar />
+
+          <div className="flex flex-1 flex-col overflow-hidden">
+            {/* Header */}
+            <Header />
+
+            {/* Main Content Area */}
+            <main className="flex-1 overflow-y-auto p-4 md:p-6 bg-zinc-950">
+              {children}
+            </main>
+          </div>
+        </div>
       </body>
     </html>
   );

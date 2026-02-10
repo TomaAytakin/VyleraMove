@@ -1,0 +1,15 @@
+
+> vylera-move@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.6 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.0.2:3000
+
+✓ Starting...
+✓ Ready in 1099ms
+○ Compiling / ...
+ GET / 200 in 5.1s (compile: 4.6s, render: 440ms)
+ GET / 200 in 217ms (compile: 69ms, render: 147ms)
+✓ Compiled in 57ms
+ GET / 200 in 175ms (compile: 58ms, render: 117ms)
