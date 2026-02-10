@@ -53,3 +53,10 @@ export enum KPIGrade {
   D = 'D',
   F = 'F',
 }
+
+// Sobriety Result
+export enum SobrietyResult {
+  PASS = 'PASS',
+  FAIL = 'FAIL',
+  TAMPER = 'TAMPER',
+}
