@@ -22,7 +22,7 @@ const sidebarLinks = [
   { href: "/map", label: "Live Map", icon: Map },
   { href: "/trips", label: "Active Trips", icon: Route },
   { href: "/dispatch", label: "Dispatch", icon: PlusCircle },
-  { href: "/fleet", label: "Fleet / Vehicles", icon: Truck },
+  { href: "/dashboard/vehicles", label: "Fleet / Vehicles", icon: Truck },
   { href: "/drivers", label: "Drivers", icon: Users },
   { href: "/maintenance", label: "Maintenance", icon: Wrench },
   { href: "/settings", label: "Settings", icon: Settings },
