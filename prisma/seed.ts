@@ -26,6 +26,14 @@ const VehicleType = {
   SHUTTLE_VAN: 'SHUTTLE_VAN',
 }
 
+// Driver Status
+const DriverStatus = {
+  AVAILABLE: 'AVAILABLE',
+  ON_TRIP: 'ON_TRIP',
+  OFF_DUTY: 'OFF_DUTY',
+  SUSPENDED: 'SUSPENDED',
+}
+
 const prisma = new PrismaClient()
 
 async function main() {
@@ -43,8 +51,8 @@ async function main() {
     },
   })
 
-  // Create Driver
-  const driver = await prisma.user.upsert({
+  // Create User Driver (for login purposes if needed)
+  const driverUser = await prisma.user.upsert({
     where: { email: 'driver@vyleramove.com' },
     update: {},
     create: {
@@ -52,6 +60,23 @@ async function main() {
       name: 'John Driver',
       password,
       role: UserRole.DRIVER,
+    },
+  })
+
+  // Create Driver Record
+  const driver = await prisma.driver.upsert({
+    where: { rfid_card_id: 'RFID-001' }, // Assuming rfid_card_id is unique or using another unique field? license_number is not marked unique in schema but effectively is?
+    // Wait, rfid_card_id is unique in schema.
+    update: {},
+    create: {
+      name: 'Sokha Driver',
+      phone: '+855 12 345 678',
+      license_number: 'L12345678',
+      license_expiry: new Date('2025-12-31'),
+      rfid_card_id: 'RFID-001',
+      status: DriverStatus.AVAILABLE,
+      languages: 'Khmer, English',
+      rating: 4.8,
     },
   })
 
@@ -86,7 +111,7 @@ async function main() {
     },
   })
 
-  console.log({ admin, driver, mercedes, alphard })
+  console.log({ admin, driverUser, driver, mercedes, alphard })
 }
 
 main()

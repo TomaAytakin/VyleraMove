@@ -8,32 +8,6 @@
 - Environments: .env
 
 ✓ Starting...
-Attention: Next.js now collects completely anonymous telemetry regarding usage.
-This information is used to shape Next.js' roadmap and prioritize features.
-You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
-https://nextjs.org/telemetry
-
-✓ Ready in 1140ms
-Starting Driver Verification via API Route...
-Initial drivers count: 0
-Creating driver Sokha...
-Driver Sokha found: {
-  id: 'cmlh3k95y0000g98xrwjp2cgk',
-  name: 'Sokha API Test',
-  phone: '+855 12 345 678',
-  license_number: 'KH-API-TEST-1770757948003',
-  license_expiry: 2030-12-31T00:00:00.000Z,
-  rfid_card_id: 'RFID-API-1770757948003',
-  status: 'AVAILABLE',
-  languages: 'English, Khmer',
-  rating: 5,
-  current_vehicle_id: null,
-  createdAt: 2026-02-10T21:12:28.006Z,
-  updatedAt: 2026-02-10T21:12:28.006Z,
-  currentVehicle: null
-}
-Driver Sokha deleted.
- GET /api/verify-driver 200 in 976ms (compile: 879ms, render: 97ms)
-○ Compiling /dashboard/drivers ...
- GET /dashboard/drivers 200 in 7.5s (compile: 6.6s, render: 906ms)
- POST /dashboard/drivers 200 in 218ms (compile: 22ms, render: 195ms)
+✓ Ready in 1091ms
+○ Compiling /dashboard/dispatch ...
+ GET /dashboard/dispatch 200 in 9.1s (compile: 8.1s, render: 944ms)

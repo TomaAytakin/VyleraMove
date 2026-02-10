@@ -21,7 +21,8 @@ export enum VehicleType {
 
 // Trip Status
 export enum TripStatus {
-  SCHEDULED = 'SCHEDULED',
+  PENDING = 'PENDING',
+  ASSIGNED = 'ASSIGNED',
   EN_ROUTE = 'EN_ROUTE',
   COMPLETED = 'COMPLETED',
   CANCELLED = 'CANCELLED',

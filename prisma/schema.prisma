@@ -17,7 +17,6 @@ model User {
   password  String
   // Stored as String for SQLite compatibility. Use 'UserRole' enum from types/enums.ts
   role      String   @default("DRIVER")
-  trips     Trip[]
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -67,31 +66,30 @@ model Driver {
   current_vehicle_id String? @unique
   currentVehicle     Vehicle? @relation(fields: [current_vehicle_id], references: [id])
 
+  trips          Trip[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
 model Trip {
-  id              String     @id @default(cuid())
-  pickupLocation  String
-  dropoffLocation String
-  pickupTime      DateTime
+  id               String     @id @default(cuid())
+  guest_name       String
+  guest_phone      String?
+  pickup_location  String
+  dropoff_location String
+  pickup_time      DateTime
   // Stored as String. Use 'TripStatus' enum from types/enums.ts
-  status          String     @default("SCHEDULED")
-
-  // Resort Specifics
-  guestName       String?
-  roomNumber      String?
-  flightNumber    String?
-  guestNotes      String?
+  status           String     @default("PENDING")
+  notes            String?
 
   // Relations
-  vehicleId       String
-  vehicle         Vehicle    @relation(fields: [vehicleId], references: [id])
+  vehicleId        String?
+  vehicle          Vehicle?   @relation(fields: [vehicleId], references: [id])
 
-  driverId        String
-  driver          User       @relation(fields: [driverId], references: [id])
+  driverId         String?
+  driver           Driver?    @relation(fields: [driverId], references: [id])
 
-  createdAt       DateTime   @default(now())
-  updatedAt       DateTime   @updatedAt
+  createdAt        DateTime   @default(now())
+  updatedAt        DateTime   @updatedAt
 }
