@@ -44,8 +44,31 @@ model Vehicle {
   type           String
   currentMileage Int           @default(0)
   trips          Trip[]
+
+  // Relation to Driver (One-to-One mostly, but technically One Vehicle can have One Current Driver)
+  currentDriver  Driver?
+
   createdAt      DateTime      @default(now())
   updatedAt      DateTime      @updatedAt
+}
+
+model Driver {
+  id             String   @id @default(cuid())
+  name           String
+  phone          String
+  license_number String
+  license_expiry DateTime
+  rfid_card_id   String?  @unique // For Teltonika Driver ID reader
+  status         String   // AVAILABLE, ON_TRIP, OFF_DUTY, SUSPENDED
+  languages      String   // Comma-separated (e.g., "English, Chinese")
+  rating         Float    @default(5.0)
+
+  // Current Vehicle Relation
+  current_vehicle_id String? @unique
+  currentVehicle     Vehicle? @relation(fields: [current_vehicle_id], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
 model Trip {
