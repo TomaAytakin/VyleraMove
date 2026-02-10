@@ -42,6 +42,10 @@ model Vehicle {
   // Stored as String. Use 'VehicleType' enum from types/enums.ts
   type           String
   currentMileage Int           @default(0)
+
+  // Fuel Metrics
+  avg_fuel_consumption Float @default(0.0)
+
   trips          Trip[]
   maintenanceLogs MaintenanceLog[]
 
@@ -71,6 +75,9 @@ model Driver {
   trust_score    Int      @default(100)
   // Stored as String. Use 'KPIGrade' enum from types/enums.ts
   kpi_grade      String   @default("A")
+
+  // Sobriety & Violations
+  is_suspended   Boolean  @default(false)
 
   // Current Vehicle Relation
   current_vehicle_id String? @unique
@@ -124,6 +131,22 @@ model Trip {
   driverId         String?
   driver           Driver?    @relation(fields: [driverId], references: [id])
 
+  telemetry        TripTelemetry?
+
   createdAt        DateTime   @default(now())
   updatedAt        DateTime   @updatedAt
+}
+
+model TripTelemetry {
+  id                 String   @id @default(cuid())
+
+  tripId             String   @unique
+  trip               Trip     @relation(fields: [tripId], references: [id])
+
+  idle_time_minutes  Int      @default(0)
+  alcohol_check_passed Boolean @default(true)
+  alcohol_level      Float    @default(0.0)
+
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
 }
