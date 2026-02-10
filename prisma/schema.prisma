@@ -28,6 +28,7 @@ model Vehicle {
   model          String
   licensePlate   String        @unique
   vin            String        @unique
+  year           Int           @default(2024)
   capacity       Int
   // Stored as String. Use 'VehicleStatus' enum from types/enums.ts
   status         String        @default("AVAILABLE")
