@@ -144,7 +144,7 @@ export function useFleetData(): UseFleetDataReturn {
                 ...v.telemetry,
                 speed,
                 fuel: Math.max(0, v.telemetry.fuel - 0.001),
-                ignition: status !== 'OFFLINE'
+                ignition: true
             },
             lastUpdate: Date.now()
         };

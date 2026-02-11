@@ -346,7 +346,7 @@ export default function MaintenanceClient({ vehicles, drivers, logs, subscriptio
                       <td className="p-4 text-right">
                          {log.category === MaintenanceCategory.ACCIDENT && <span className="text-red-500 font-bold">-10</span>}
                          {log.category === MaintenanceCategory.NON_WEAR_DAMAGE && <span className="text-orange-500 font-bold">-5</span>}
-                         {log.category === MaintenanceCategory.WEAR_AND_TEAR && <span className="text-zinc-500">-</span>}
+                         {log.category === MaintenanceCategory.WEAR && <span className="text-zinc-500">-</span>}
                       </td>
                     </tr>
                   ))
