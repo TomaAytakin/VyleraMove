@@ -39,7 +39,7 @@ export default function CostChart({ data }: CostChartProps) {
             ))}
           </Pie>
           <Tooltip
-            formatter={(value: number) => `$${value.toLocaleString()}`}
+            formatter={(value: number | undefined) => `$${value?.toLocaleString()}`}
             contentStyle={{ backgroundColor: '#18181b', border: '1px solid #3f3f46', borderRadius: '8px' }}
             itemStyle={{ color: '#e4e4e7' }}
           />

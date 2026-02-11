@@ -15,7 +15,7 @@ export default function SobrietySimulator({ vehicles }: SobrietySimulatorProps) 
   const [selectedVehicleId, setSelectedVehicleId] = useState<string>(vehicles[0]?.id || '');
   const [alcoholLevel, setAlcoholLevel] = useState<number>(0.0);
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<{ success: boolean; message: string } | null>(null);
+  const [result, setResult] = useState<{ success: boolean; message: string; violation?: boolean } | null>(null);
 
   const handleTest = async () => {
     if (!selectedVehicleId) return;

@@ -42,6 +42,7 @@ export enum MaintenanceCategory {
   WEAR = 'WEAR',
   ACCIDENT = 'ACCIDENT',
   SERVICE = 'SERVICE',
+  NON_WEAR_DAMAGE = 'NON_WEAR_DAMAGE',
 }
 
 // KPI Grade
